@@ -1,0 +1,25 @@
+<div class="row">
+	<div class="col-md-4 py-3">
+		<div class="brdr w-25 mb-3"></div>
+		<h3>Trending<br/> Movies<br/> to Watch Now</h3>
+		<p class="secondFontColor py-2">Most watched movies by days</p>
+		<div class="brdr w-100 mt-3"></div>
+	</div>
+	
+<div *ngFor='let ali of trindingMovies' class="col-md-2 py-3">,
+	
+<div class="ali">
+	
+	<img [src]="imgSrce+ali.poster_path" class="w-100" alt="">
+<h4 class="my-2 h5 ">{{ali.title}}{{ali.name}}</h4>
+<h4 class="my-2 h5 ">{{ali.first_air_date}}{{ali.release_date}}  </h4>
+
+<div class="Vote position-absolute">{{ali.vote_average}}</div>
+
+
+
+</div>
+
+</div>
+
+</div>

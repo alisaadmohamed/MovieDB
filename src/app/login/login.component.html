@@ -1,0 +1,36 @@
+
+
+ 
+
+
+<form [formGroup]='loginForm'  (ngSubmit)='loginButton(loginForm)' class="m-auto w-75 py-4 ">
+	
+	<div *ngIf="error !=''" class="alert alert-danger">
+
+		{{error}}
+
+	</div>
+
+<label>Email</label>
+<input formControlName='email' class="form-control mb-2" type="email">
+<div *ngIf="loginForm.get('email')!.errors && loginForm.get('email')!.touched" class="alert border border-danger">
+	<p *ngIf="loginForm.get('email')!.errors!.required">email is Required</p>
+	<p *ngIf="loginForm.get('email')!.errors!.email">email invalid</p>
+	
+</div>
+
+<label>Password</label>
+<input formControlName='password' class="form-control mb-2" type="password">
+<div *ngIf="loginForm.get('password')!.errors && loginForm.get('password')!.touched" class="alert border border-danger">
+	<p *ngIf="loginForm.get('password')!.errors!.required">password is Required</p>
+	<p *ngIf="loginForm.get('password')!.errors !.pattern">password must includs a-z from 3-10</p>
+</div>
+
+<button type="submit"  [disabled]='loginForm.invalid' class="btn btn-info mt-2 float-right ">login</button>
+
+<div>
+	<h6>dont have account ? <a routerLink="register"> register </a></h6>
+</div>
+
+
+</form>

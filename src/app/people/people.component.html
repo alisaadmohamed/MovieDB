@@ -1,0 +1,24 @@
+<table class="table m-auto text-center w-75 bg-white">
+<thead class="bg-white">
+<th>name</th>
+<th>age</th>
+<th>salary</th>
+<th>gender</th>
+<th>dateOfBirth</th>
+
+</thead>
+<tbody>
+<tr *ngFor="let user of allUsers">
+	<td>{{user.name|gender:user.gender}}</td>
+	<td>{{user.age}}</td>
+	<td>{{user.salary}}</td>
+	<td>{{user.gender}}</td>
+	<td>{{user.dateOfBirth|date}}</td>
+
+</tr>
+</tbody>
+
+
+
+
+</table>

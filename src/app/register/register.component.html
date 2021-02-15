@@ -1,0 +1,64 @@
+
+
+ 
+
+
+<form [formGroup]='registerForm'  (ngSubmit)='registerButton(registerForm)' class="m-auto w-75 py-4 ">
+	
+	<div *ngIf="error !=''" class="alert alert-danger">
+
+		{{error}}
+
+	</div>
+
+
+
+<label>FirstName</label>
+<input formControlName='first_name' class="form-control mb-2" type="text">
+<div *ngIf="registerForm.get('first_name')!.errors && registerForm.get('first_name')!.touched" class="alert border border-danger">
+	<p *ngIf="registerForm.get('first_name')!.errors!.required">firstname is Required</p>
+	<p *ngIf="registerForm.get('first_name')!.errors !.minlength">firstname minLength is 3</p>
+	<p *ngIf="registerForm.get('first_name')!.errors !.maxlength">firstname maxLength is 10</p>
+</div>
+
+<label>LastName</label>
+<input formControlName='last_name' class="form-control mb-2" type="text">
+<div *ngIf="registerForm.get('last_name')!.errors && registerForm.get('last_name')!.touched" class="alert border border-danger">
+	<p *ngIf="registerForm.get('last_name')!.errors!.required">lastname is Required</p>
+	<p *ngIf="registerForm.get('last_name')!.errors !.minlength">lastname minLength is 3</p>
+	<p *ngIf="registerForm.get('last_name')!.errors !.maxlength">lastname maxLength is 10</p>
+</div>
+
+<label>Email</label>
+<input formControlName='email' class="form-control mb-2" type="email">
+<div *ngIf="registerForm.get('email')!.errors && registerForm.get('email')!.touched" class="alert border border-danger">
+	<p *ngIf="registerForm.get('email')!.errors!.required">email is Required</p>
+	<p *ngIf="registerForm.get('email')!.errors!.email">email invalid</p>
+	
+</div>
+
+
+<label>Age</label>
+<input formControlName='age' class="form-control mb-2" type="number">
+<div *ngIf="registerForm.get('age')!.errors && registerForm.get('age')!.touched" class="alert border border-danger">
+	<p *ngIf="registerForm.get('age')!.errors!.required">age is Required</p>
+	<p *ngIf="registerForm.get('age')!.errors !.min">min value is 10</p>
+	<p *ngIf="registerForm.get('age')!.errors !.max"> max value is 80</p>
+</div>
+
+
+<label>Password</label>
+<input formControlName='password' class="form-control mb-2" type="password">
+<div *ngIf="registerForm.get('password')!.errors && registerForm.get('password')!.touched" class="alert border border-danger">
+	<p *ngIf="registerForm.get('password')!.errors!.required">password is Required</p>
+	<p *ngIf="registerForm.get('password')!.errors !.pattern">password must includs a-z from 3-10</p>
+</div>
+
+
+
+<button type="submit"  [disabled]='registerForm.invalid' class="btn btn-info mt-2 float-right ">register</button>
+
+
+
+
+</form>
